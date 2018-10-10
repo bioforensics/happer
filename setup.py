@@ -12,11 +12,16 @@ import versioneer
 
 
 desc = 'Library for applying haplotypes to reference DNA sequences'
+with open('README.md', 'r') as infile:
+    longdesc = infile.read()
+
 setup(
     name='happer',
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     description=desc,
+    long_description=longdesc,
+    long_description_content_type='text/markdown',
     url='https://github.com/bioforensics/happer',
     author='Daniel Standage',
     author_email='daniel.standage@nbacc.dhs.gov',
