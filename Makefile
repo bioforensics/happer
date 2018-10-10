@@ -14,6 +14,8 @@ style:
 
 ## devdeps:     install development dependencies
 devdeps:
+	pip3 install --upgrade pip setuptools
+	pip3 install wheel twine
 	pip3 install pycodestyle pytest pytest-cov pytest-sugar
 
 ## hooks:       install git hooks for development
