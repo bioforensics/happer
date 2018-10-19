@@ -36,10 +36,10 @@ def test_bad_ploidy():
 
 def test_mutate_simple():
     seqfile = open(data_file('pico-refr.fa'), 'r')
-    sequences = [seq for label, seq in happer.seqio.parse_fasta(seqfile)]
-    seqfile = open(data_file('pico-refr.fa'), 'r')
+    seqdata = [data for data in happer.seqio.parse_fasta(seqfile)]
+    sequences = [seq for label, seq in seqdata]
     allelefile = open(data_file('pico-hapl-1.bed'), 'r')
-    mutator = happer.mutate.mutate(seqfile, allelefile)
+    mutator = happer.mutate.mutate(seqdata, allelefile)
     haploseqs = [sequence for label, sequence in mutator]
     assert len(haploseqs) == 6
     assert 'CAACCTTACGATCTA' in haploseqs[0]

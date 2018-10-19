@@ -59,11 +59,10 @@ def populate_haplotype_index(allelestream):
     return n, haplotypes
 
 
-def mutate(sequences, alleles):
+def mutate(seqstream, alleles):
     allelestream = happer.allele.parse_alleles(alleles)
     ploidy, haplotypes = populate_haplotype_index(allelestream)
 
-    seqstream = happer.seqio.parse_fasta(sequences)
     for defline, sequence in seqstream:
         haploseqs = list()
         while len(haploseqs) < ploidy:
@@ -83,7 +82,8 @@ def main(args):
     seq = open(args.seqfile, 'r')
     als = open(args.bed, 'r')
     out = open(args.out, 'w')
-    for defline, haploseq in mutate(seq, als):
+    seqstream = happer.seqio.parse_fasta(seq)
+    for defline, haploseq in mutate(seqstream, als):
         print('>', defline, sep='', file=out)
         happer.seqio.format(haploseq, out)
     out.close()
