@@ -16,7 +16,7 @@ style:
 devdeps:
 	pip install --upgrade pip setuptools
 	pip install wheel twine
-	pip install pycodestyle pytest pytest-cov pytest-sugar
+	pip install pycodestyle 'pytest>=4.4' 'pytest-cov>=2.6' pytest-sugar
 
 ## hooks:       install git hooks for development
 hooks:
