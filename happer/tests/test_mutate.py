@@ -26,6 +26,12 @@ def test_populate_hap_index():
     assert [len(hap) for hap in haplotypes['chr17']] == [5, 5]
 
 
+def test_empty_input():
+    with pytest.raises(ValueError) as ve:
+        ploidy, hapl = happer.mutate.populate_haplotype_index('')
+    assert 'no input provided to populate haplotype index' in str(ve)
+
+
 def test_bad_ploidy():
     alsfile = open(data_file('ploidy-mismatch.bed'), 'r')
     alleles = happer.allele.parse_alleles(alsfile)

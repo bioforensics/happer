@@ -38,6 +38,7 @@ def populate_haplotype_index(allelestream):
         ...
     }
     """
+    n = None
     haplotypes = dict()
     for genotype in allelestream:
         seqid = genotype[0].seqid
@@ -56,6 +57,8 @@ def populate_haplotype_index(allelestream):
     for seqid in haplotypes:
         for hap in haplotypes[seqid]:
             hap.sort()
+    if n is None:
+        raise ValueError('no input provided to populate haplotype index')
     return n, haplotypes
 
 

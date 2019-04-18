@@ -6,7 +6,7 @@ help: Makefile
 
 ## test:        execute the automated test suite
 test:
-	py.test --cov=happer happer/tests/*.py
+	pytest --cov=happer happer/tests/*.py
 
 ## style:       check Python code style against PEP8
 style:
@@ -14,9 +14,9 @@ style:
 
 ## devdeps:     install development dependencies
 devdeps:
-	pip3 install --upgrade pip setuptools
-	pip3 install wheel twine
-	pip3 install pycodestyle pytest pytest-cov pytest-sugar
+	pip install --upgrade pip setuptools
+	pip install wheel twine
+	pip install pycodestyle pytest pytest-cov pytest-sugar
 
 ## hooks:       install git hooks for development
 hooks:
